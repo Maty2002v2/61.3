@@ -9,25 +9,32 @@ using namespace std;
 class ciagi{
 	public:
 		fstream plik;
+		ofstream plik2;
 		vector<int> szesciany;
 		
 		ciagi();
 		~ciagi();
-		void znajdz();
+		void wczytajLiczby();
+		int w();
+		
+	private:
 };
 
 ciagi::ciagi(){
-	if(plik.good())
+	if(plik.good()) {
 		plik.open("c:\\bledne.txt", ios::in);  
+		plik2.open("c:\\od.txt");
+	}
 	else
 		cout<<"Cos poszlo nie tak przy otwieraniu pliku.";
 };
 
 ciagi::~ciagi(){
-	plik.close(); 
+	plik.close();  
+	plik2.close();
 }
 
-void ciagi::znajdz()
+void ciagi::wczytajLiczby()
 {
 	int r;
 	int r2;
@@ -56,7 +63,7 @@ void ciagi::znajdz()
 
 			for (int i = 0; i < dlugosc; i++) {
 				if (szesciany[i+1] - szesciany[i] != r) {
-					cout<<szesciany[i]<<endl;
+					plik2<<szesciany[i]<<"\n";
 					break;
 				}
 			}
@@ -67,6 +74,6 @@ void ciagi::znajdz()
 int main(int argc, char** argv) {
 	ciagi b;
 	
-	b.znajdz();
+	b.wczytajLiczby();
 	return 0;
 }
