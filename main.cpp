@@ -9,7 +9,6 @@ using namespace std;
 class ciagi{
 	public:
 		fstream plik;
-		ofstream plik2;
 		vector<int> szesciany;
 		
 		ciagi();
@@ -18,17 +17,14 @@ class ciagi{
 };
 
 ciagi::ciagi(){
-	if(plik.good() && plik2.good()) {
+	if(plik.good())
 		plik.open("c:\\bledne.txt", ios::in);  
-		plik.open("c:\\wynik2.txt");
-	}
 	else
 		cout<<"Cos poszlo nie tak przy otwieraniu pliku.";
 };
 
 ciagi::~ciagi(){
-	plik.close();  
-	plik2.close();
+	plik.close(); 
 }
 
 void ciagi::znajdz()
@@ -60,7 +56,7 @@ void ciagi::znajdz()
 
 			for (int i = 0; i < dlugosc; i++) {
 				if (szesciany[i+1] - szesciany[i] != r) {
-					plik2<<szesciany[i]<<"\n";
+					cout<<szesciany[i]<<endl;
 					break;
 				}
 			}
