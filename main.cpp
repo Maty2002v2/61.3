@@ -14,10 +14,7 @@ class ciagi{
 		
 		ciagi();
 		~ciagi();
-		void wczytajLiczby();
-		int w();
-		
-	private:
+		void znajdz();
 };
 
 ciagi::ciagi(){
@@ -34,7 +31,7 @@ ciagi::~ciagi(){
 	plik2.close();
 }
 
-void ciagi::wczytajLiczby()
+void ciagi::znajdz()
 {
 	int r;
 	int r2;
@@ -74,6 +71,6 @@ void ciagi::wczytajLiczby()
 int main(int argc, char** argv) {
 	ciagi b;
 	
-	b.wczytajLiczby();
+	b.znajdz();
 	return 0;
 }
